@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,14 +13,30 @@ class DashboardCubit extends Cubit<DashboardStates> {
   GenerateRandomColorUseCase randomColorUseCase;
 
   Color _backgroundColor = Colors.white;
+
   Color get backgroundColor => _backgroundColor;
 
+  bool isSwitchToggle = false;
+
+
+
+  void changeSwitchState(){
+    isSwitchToggle=!isSwitchToggle;
+    emit(DashboardGenerateColorState());
+
+  }
   void generateRandomColor() {
     var randomColorCallBack = randomColorUseCase.call(NoParams());
     randomColorCallBack.fold((error) {
       showToast(text: error.toString());
     }, (color) {
       _backgroundColor = color;
+      emit(DashboardGenerateColorState());
     });
+  }
+
+  bool isColorDark(Color color) {
+      double darkness =(color.red * 0.299 + color.green * 0.587 + color.blue * 0.114);
+      return darkness< 186;
   }
 }

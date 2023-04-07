@@ -4,9 +4,16 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:solid_task/core/usecases/usecase.dart';
 
+import '../repositry/ride_repositry.dart';
+
 class GenerateRandomColorUseCase implements UseCase<Color, NoParams> {
+
+  RandomColorRepository randomColorRepository ;
+
+  GenerateRandomColorUseCase({required this.randomColorRepository});
+
   @override
   Either<Exception, Color> call(NoParams params) {
-    return Right(Color(Random().nextInt(0xffffffff)));
+    return randomColorRepository.generateRandomColor();
   }
 }

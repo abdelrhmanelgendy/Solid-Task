@@ -14,6 +14,7 @@ class SolidApp extends StatelessWidget {
         BlocProvider(create: (context) =>  sl<DashboardCubit>()),
       ],
       child:MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Solid Task',
         theme: ThemeData(
           primarySwatch: Colors.blue,
