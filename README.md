@@ -19,12 +19,15 @@ The project uses Clean architecture as structure pattern consisting of the layer
 
 
 
+
+
 # Dependencies& libraries 
 
 
 * solid_lints : Flutter lints configuration based on software engineering industry standards (ISO/IEC, NIST) and best practices.
 * flutter_bloc : Flutter Widgets that make it easy to implement the BLoC (Business Logic Component).
 * get_it : simple Service Locator library
+* timer  : create automatic and peropdic color switching every 500 millis
 
 
  
