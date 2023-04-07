@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tasks.solid.solid_task">
    <application
-        android:label="solid_task"
+        android:label="Solid Task"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

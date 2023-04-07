@@ -23,8 +23,7 @@ class DashboardCubit extends Cubit<DashboardStates> {
   void changeSwitchState(){
     isSwitchToggle=!isSwitchToggle;
     emit(DashboardGenerateColorState());
-
-  }
+   }
   void generateRandomColor() {
     var randomColorCallBack = randomColorUseCase.call(NoParams());
     randomColorCallBack.fold((error) {
