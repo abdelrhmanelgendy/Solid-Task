@@ -1,16 +1,34 @@
-# solid_task
+# Solid-Task
+simple app that containing single screen and with a single click we can change the background color or by turning on the automatic color switch
+ <br/>
+ <a href="https://github.com/abdelrhmanelgendy/Solid-Task/blob/master/solid.apk">test.apk</a>
 
-A new Flutter project.
+  <br/>
+   <br/>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# Techicality 
 
-A few resources to get you started if this is your first Flutter project:
+The project uses Clean architecture as structure pattern consisting of the layers : 
+*  Data layer contains data source, and repositories implementation 
+*  Domina layer contains mainly project Bussiness rules, and consist of Domain Named Objects, Repositories, and application use cases 
+*  Presentation layer contains UI, it contains The, Components,Cubit and Widgets..etc
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Dependencies& libraries 
+
+
+* solid_lints : Flutter lints configuration based on software engineering industry standards (ISO/IEC, NIST) and best practices.
+* flutter_bloc : Flutter Widgets that make it easy to implement the BLoC (Business Logic Component).
+* get_it : simple Service Locator library
+
+
+ 
+ <br/>
+  <br/>
+   <br/>
+
+<img src= "https://github.com/abdelrhmanelgendy/Solid-Task/blob/master/1.jpg" width="300">
+<img src= "https://github.com/abdelrhmanelgendy/Solid-Task/blob/master/2.jpg" width="300">
+ 
