@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app/di/injection_container.dart' as di;
+import 'app/di/app_module.dart' as di;
 import 'app/presentation/solid_app.dart';
 import 'core/utils/bloc_observer.dart';
 

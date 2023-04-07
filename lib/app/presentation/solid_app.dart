@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../dashboard/presenation/cubit/dashboard_cubit.dart';
 import '../../dashboard/presenation/screens/dashboard_screen.dart';
-import '../di/injection_container.dart';
+import '../di/app_module.dart';
 
 class SolidApp extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class SolidApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: DashboardScreen(title: 'Hello There'),
+        home: DashboardScreen(),
       )
     );
 

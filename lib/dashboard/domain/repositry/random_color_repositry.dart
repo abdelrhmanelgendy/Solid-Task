@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 import '../../data/random_color_data_source.dart';
 
-abstract class RandomColorRepository {
+abstract class ColorRepository {
 
 
   Either<Exception, Color> generateRandomColor();
 }
 
-class RandomColorRepositoryImpl implements RandomColorRepository {
+class ColorRepositoryImpl implements ColorRepository {
 
   final RandomColorDataSource randomColorDataSource;
 
-  RandomColorRepositoryImpl(this.randomColorDataSource);
+  ColorRepositoryImpl(this.randomColorDataSource);
 
   @override
   Either<Exception, Color> generateRandomColor() {

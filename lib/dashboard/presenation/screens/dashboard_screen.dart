@@ -6,9 +6,8 @@ import 'package:solid_task/dashboard/presenation/cubit/dashboard_cubit.dart';
 import 'package:solid_task/dashboard/presenation/cubit/dashboard_state.dart';
 
 class DashboardScreen extends StatelessWidget {
-  DashboardScreen({Key? key, required this.title}) : super(key: key);
+  DashboardScreen({Key? key}) : super(key: key);
 
-  final String title;
   late DashboardCubit _dashboardCubit;
   Timer? _timer;
 
@@ -30,11 +29,12 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: _dashboardCubit.backgroundColor,
           body: Center(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+               mainAxisSize: MainAxisSize.min,
               children: [
                 _buildHelloText(),
                 const SizedBox(
-                  height: 200,
+                  height: 20,
                 ),
                 _buildPeriodicColorWidget()
               ],
@@ -44,7 +44,7 @@ class DashboardScreen extends StatelessWidget {
       );
 
   Widget _buildHelloText() => Text(
-        title,
+        "Hello There",
         style: TextStyle(fontSize: 30, color: _getTextColor()),
       );
 

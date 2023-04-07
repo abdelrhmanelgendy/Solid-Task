@@ -6,14 +6,14 @@ import 'package:solid_task/core/usecases/usecase.dart';
 
 import '../repositry/random_color_repositry.dart';
 
-class GenerateRandomColorUseCase implements UseCase<Color, NoParams> {
+class RandomColorUseCase implements UseCase<Color, NoParams> {
 
-  RandomColorRepository randomColorRepository ;
+  ColorRepository colorRepository ;
 
-  GenerateRandomColorUseCase({required this.randomColorRepository});
+  RandomColorUseCase({required this.colorRepository});
 
   @override
   Either<Exception, Color> call(NoParams params) {
-    return randomColorRepository.generateRandomColor();
+    return colorRepository.generateRandomColor();
   }
 }

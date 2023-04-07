@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solid_task/core/usecases/usecase.dart';
 import 'package:solid_task/core/utils/shared_components.dart';
-import 'package:solid_task/dashboard/domain/use_case/generate_random_color_use_case.dart';
+import 'package:solid_task/dashboard/domain/use_case/random_color_use_case.dart';
 
 import 'dashboard_state.dart';
 
@@ -13,7 +13,7 @@ class DashboardCubit extends Cubit<DashboardStates> {
       : super(DashboardIdleState());
 
 
- final GenerateRandomColorUseCase randomColorUseCase;
+ final RandomColorUseCase randomColorUseCase;
 
   Color _backgroundColor = Colors.white;
 
