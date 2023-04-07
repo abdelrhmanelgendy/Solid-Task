@@ -1,39 +1,31 @@
-
 import 'dart:math';
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:solid_task/dashboard/presenation/cubit/dashboard_cubit.dart';
+import 'package:solid_task/dashboard/presenation/cubit/dashboard_state.dart';
 
-class DashboardScreen extends StatefulWidget {
-  DashboardScreen({Key? key,required this.title}) : super(key: key);
+class DashboardScreen extends StatelessWidget {
+  DashboardScreen({Key? key, required this.title}) : super(key: key);
 
   final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<DashboardScreen> {
-  Color _backgroundColor = Colors.white;
-
-  void _changeBackgroundColor() {
-    setState(() {
-      _backgroundColor = Color(Random().nextInt(0xffffffff));
-    });
-  }
+  late DashboardCubit dashboardCubit;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _changeBackgroundColor(),
-      child: Scaffold(
-        backgroundColor: _backgroundColor,
-        body: Center(
-          child: Text(
-            widget.title,
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
-      ),
-    );
+    dashboardCubit = BlocProvider.of(context);
+    return BlocConsumer<DashboardCubit, DashboardStates>(
+        builder: (context, state) => GestureDetector(
+              onTap: () => dashboardCubit.generateRandomColor(),
+              child: Scaffold(
+                backgroundColor: dashboardCubit.backgroundColor,
+                body: Center(
+                  child: Text(
+                    title,
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              ),
+            ),
+        listener: (context, state) {});
   }
 }
-

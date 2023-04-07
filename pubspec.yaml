@@ -15,6 +15,9 @@ dependencies:
   solid_lints: ^0.0.14
   dartz: ^0.10.1
   equatable: ^2.0.5
+  flutter_bloc: ^8.1.1
+  get_it: ^7.2.0
+  fluttertoast: ^8.1.1
 
 dev_dependencies:
   flutter_test:
