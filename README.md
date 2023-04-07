@@ -1,6 +1,9 @@
 # Solid-Task
 simple app that containing single screen and with a single click we can change the background color or by turning on the automatic color switch
  <br/>
+ the text color of the word <strong>Hello There</strong> is also changeable to adapt with the background color
+ <br/>
+ 
  <a href="https://github.com/abdelrhmanelgendy/Solid-Task/blob/master/solid.apk">test.apk</a>
 
   <br/>
