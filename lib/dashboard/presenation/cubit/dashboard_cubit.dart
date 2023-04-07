@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solid_task/core/usecases/usecase.dart';
@@ -8,9 +7,13 @@ import 'package:solid_task/dashboard/domain/use_case/generate_random_color_use_c
 import 'dashboard_state.dart';
 
 class DashboardCubit extends Cubit<DashboardStates> {
+
+
   DashboardCubit({required this.randomColorUseCase})
       : super(DashboardIdleState());
-  GenerateRandomColorUseCase randomColorUseCase;
+
+
+ final GenerateRandomColorUseCase randomColorUseCase;
 
   Color _backgroundColor = Colors.white;
 
@@ -18,14 +21,13 @@ class DashboardCubit extends Cubit<DashboardStates> {
 
   bool isSwitchToggle = false;
 
-
-
-  void changeSwitchState(){
-    isSwitchToggle=!isSwitchToggle;
+  void changeSwitchState() {
+    isSwitchToggle = !isSwitchToggle;
     emit(DashboardGenerateColorState());
-   }
+  }
+
   void generateRandomColor() {
-    var randomColorCallBack = randomColorUseCase.call(NoParams());
+    final randomColorCallBack = randomColorUseCase.call(NoParams());
     randomColorCallBack.fold((error) {
       showToast(text: error.toString());
     }, (color) {
@@ -34,8 +36,10 @@ class DashboardCubit extends Cubit<DashboardStates> {
     });
   }
 
-  bool isColorDark(Color color) {
-      double darkness =(color.red * 0.299 + color.green * 0.587 + color.blue * 0.114);
-      return darkness< 186;
+  bool isColorDark() {
+    final double darkness = _backgroundColor.red * 0.299 +
+        _backgroundColor.green * 0.587 +
+        _backgroundColor.blue * 0.114;
+    return darkness < 186;
   }
 }

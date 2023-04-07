@@ -9,14 +9,14 @@ class DashboardScreen extends StatelessWidget {
   DashboardScreen({Key? key, required this.title}) : super(key: key);
 
   final String title;
-  late DashboardCubit dashboardCubit;
-  Timer? timer;
+  late DashboardCubit _dashboardCubit;
+  Timer? _timer;
 
   @override
   Widget build(BuildContext context) {
-    dashboardCubit = BlocProvider.of(context);
-    if (!dashboardCubit.isSwitchToggle) {
-      timer?.cancel();
+    _dashboardCubit = BlocProvider.of(context);
+    if (!_dashboardCubit.isSwitchToggle) {
+      _timer?.cancel();
     }
     return BlocConsumer<DashboardCubit, DashboardStates>(
       builder: (context, state) => _buildBody(),
@@ -25,9 +25,9 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _buildBody() => GestureDetector(
-        onTap: () => dashboardCubit.generateRandomColor(),
+        onTap: () => _dashboardCubit.generateRandomColor(),
         child: Scaffold(
-          backgroundColor: dashboardCubit.backgroundColor,
+          backgroundColor: _dashboardCubit.backgroundColor,
           body: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -45,7 +45,7 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildHelloText() => Text(
         title,
-        style: TextStyle(fontSize: 30, color: getTextColor()),
+        style: TextStyle(fontSize: 30, color: _getTextColor()),
       );
 
   Widget _buildPeriodicColorWidget() => Row(
@@ -53,9 +53,9 @@ class DashboardScreen extends StatelessWidget {
         children: [
           Text(
             "Automatic Color",
-            style: TextStyle(fontSize: 20, color: getTextColor()),
+            style: TextStyle(fontSize: 20, color: _getTextColor()),
           ),
-          SizedBox(width: 15,),
+          const SizedBox(width: 15,),
           FlutterSwitch(
             height: 30.0,
             width: 65.0,
@@ -63,22 +63,22 @@ class DashboardScreen extends StatelessWidget {
             toggleSize: 20.0,
             borderRadius: 10.0,
             activeColor: Colors.blue,
-            value: dashboardCubit.isSwitchToggle,
+            value: _dashboardCubit.isSwitchToggle,
             onToggle: (value) {
-              dashboardCubit.changeSwitchState();
+              _dashboardCubit.changeSwitchState();
               if (value) {
-                timer = Timer.periodic(const Duration(milliseconds: 500),
-                    (Timer t) => dashboardCubit.generateRandomColor());
+                _timer = Timer.periodic(const Duration(milliseconds: 500),
+                    (Timer t) => _dashboardCubit.generateRandomColor());
               } else {
-                timer?.cancel();
+                _timer?.cancel();
               }
             },
           ),
         ],
       );
 
-  Color getTextColor() =>
-      dashboardCubit.isColorDark(dashboardCubit.backgroundColor)
+  Color _getTextColor() =>
+      _dashboardCubit.isColorDark()
           ? Colors.white
           : Colors.black;
 }
